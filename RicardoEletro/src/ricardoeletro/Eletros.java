@@ -1,7 +1,5 @@
 package ricardoeletro;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author danpg
@@ -9,6 +7,7 @@ import java.util.ArrayList;
 public class Eletros {
     protected String marca;
     protected double preço;
+    protected int voltagem;
 
     public String getMarca() {
         return marca;
@@ -33,18 +32,6 @@ public class Eletros {
     public void setVoltagem(int voltagem) {
         this.voltagem = voltagem;
     }
-
-    public ArrayList<Eletros> getNeletro() {
-        return Neletro;
-    }
-
-    public void setNeletro(ArrayList<Eletros> Neletro) {
-        this.Neletro = Neletro;
-    }
-    protected int voltagem;
-    
-    ArrayList<Eletros> Neletro = new ArrayList();
-    
     
     public boolean defVoltagem(int volts){
         if(volts==110||volts==220){

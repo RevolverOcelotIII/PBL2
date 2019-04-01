@@ -41,7 +41,12 @@ public class RicardoEletro {
                                        JOptionPane.showMessageDialog(null, "Esta Voltagem é inválida, por favor insira outra");
                                    }
                                 }while(ops==true);
-                                liq.setPreço(Double.parseDouble(JOptionPane.showInputDialog("Insira o preço do Produto:")));
+                                do{
+                                    liq.setPreço(Double.parseDouble(JOptionPane.showInputDialog("Insira o preço do Produto:")));
+                                    if(liq.getPreço()<=0){
+                                        JOptionPane.showMessageDialog(null,"Este preço é inválido, por favor insira outro");
+                                    }
+                                }while(liq.getPreço()<=0);
                                 liq.Desconto(mes);
                                 liq.setDescrição(JOptionPane.showInputDialog("Insira a descrição do Liquidificador:"));
                                 liq.setTampa(JOptionPane.showInputDialog("Insira o tipo da tampa:"));
@@ -55,7 +60,12 @@ public class RicardoEletro {
                             if(choiceADD==1){
                                 Ferro Fe=new Ferro();
                                 Fe.setMarca(JOptionPane.showInputDialog("Insira a marca do Produto:"));
-                                Fe.setPreço(Double.parseDouble(JOptionPane.showInputDialog("Insira o preço do Produto:")));
+                                do{
+                                    Fe.setPreço(Double.parseDouble(JOptionPane.showInputDialog("Insira o preço do Produto:")));
+                                    if(Fe.getPreço()<=0){
+                                        JOptionPane.showMessageDialog(null,"Este preço é inválido, por favor insira outro");
+                                    }
+                                }while(Fe.getPreço()<=0);
                                 Fe.Desconto(mes);
                                 do{
                                    int volts=Integer.parseInt(JOptionPane.showInputDialog("Insira a Voltagem do Produto:"));
@@ -72,7 +82,12 @@ public class RicardoEletro {
                                 Batedeira Bat= new Batedeira();
                                 Bat.setMarca(JOptionPane.showInputDialog("Insira a marca do Produto:"));
                                 Bat.setQthelices(Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de hélices:")));
-                                Bat.setPreço(Double.parseDouble(JOptionPane.showInputDialog("Insira o preço do Produto:")));
+                                do{
+                                    Bat.setPreço(Double.parseDouble(JOptionPane.showInputDialog("Insira o preço do Produto:")));
+                                    if(Bat.getPreço()<=0){
+                                        JOptionPane.showMessageDialog(null,"Este preço é inválido, por favor insira outro");
+                                    }
+                                }while(Bat.getPreço()<=0);
                                 Bat.Desconto(mes);
                                 do{
                                    int volts=Integer.parseInt(JOptionPane.showInputDialog("Insira a Voltagem do Produto:"));

@@ -8,6 +8,7 @@ public class Eletros {
     protected String marca;
     protected double preço;
     protected int voltagem;
+    
 
     public String getMarca() {
         return marca;

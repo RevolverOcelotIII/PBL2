@@ -2,13 +2,21 @@ package ricardoeletro;
 
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 /**
  *
  * @author danpg
  */
 public class RicardoEletro {
     public static void main(String[] args) {
-        JOptionPane.showMessageDialog(null, "⚡⚡🤡🤡RICARDO SHOKK🤡🤡⚡⚡");
+        ArrayList <Liquidificador> ArrLiq = new ArrayList();
+        ArrayList <Ferro> ArrFe = new ArrayList();
+        ArrayList <Batedeira> ArrBat = new ArrayList();
+        String optADD[]={"Liquidificador","Ferro de Passar","Batedeira","Voltar"};
+        String optG[]={"Gerenciar","Adicionar","Sair"};
+        int choiceADD,choiceG,choiceGE;
+        ImageIcon RicShok = new ImageIcon("C:\\Users\\danpg\\OneDrive\\Área de Trabalho\\aaa\\git\\local\\PBL2\\RicardoEletro\\build\\classes\\ricardoeletro\\RicardoShokk.png");
+        JOptionPane.showMessageDialog(null,null,"RICARDO SHOKK",JOptionPane.INFORMATION_MESSAGE,RicShok);
         int mes;
         do{
             mes=Integer.parseInt(JOptionPane.showInputDialog("Em que mês estamos?"));
@@ -16,12 +24,16 @@ public class RicardoEletro {
                 JOptionPane.showMessageDialog(null,"Este mês é inválido");
             }
         }while(mes<=0||mes>12);
-        String optADD[]={"Liquidificador","Ferro de Passar","Batedeira","Voltar"};
-        String optG[]={"Gerenciar","Adicionar","Sair"};
-        ArrayList <Liquidificador> ArrLiq = new ArrayList();
-        ArrayList <Ferro> ArrFe = new ArrayList();
-        ArrayList <Batedeira> ArrBat = new ArrayList();
-        int choiceADD,choiceG,choiceGE;
+        switch(mes){ 
+            case 5:
+                JOptionPane.showMessageDialog(null,"Neste mês o ferro está com 15% de desconto!");
+                break;
+            case 8:
+                JOptionPane.showMessageDialog(null, "Neste mês o liquidificador está com 10% de desconto!");
+                break;
+            case 12:
+                JOptionPane.showMessageDialog(null, "Neste mês a batedeira está com 20% de desconto!");
+        }
         boolean ops;
             do{
                 choiceG=JOptionPane.showOptionDialog(null, "O que deseja fazer?", "RICARDO SHOKK", 0, 0, null, optG, null);
@@ -32,7 +44,7 @@ public class RicardoEletro {
                             choiceADD=JOptionPane.showOptionDialog(null, "O que deseja adicionar à loja?", "RICARDO SHOKK", 0, 0, null, optADD, null); 
                             if(choiceADD==0){
                                 Liquidificador liq=new Liquidificador();
-                                liq.setMarca(JOptionPane.showInputDialog("Insira a marca do Produto:"));
+                                liq.setMarca(JOptionPane.showInputDialog("Insira a marca do Produto:\nMarcas no banco de dados:\nArno\nPhilips\nElectrolux\nCadence"));
                                 liq.setCor(JOptionPane.showInputDialog("Insira a cor do Produto:"));
                                 do{
                                    int volts=Integer.parseInt(JOptionPane.showInputDialog("Insira a Voltagem do Produto:"));
@@ -59,7 +71,7 @@ public class RicardoEletro {
 
                             if(choiceADD==1){
                                 Ferro Fe=new Ferro();
-                                Fe.setMarca(JOptionPane.showInputDialog("Insira a marca do Produto:"));
+                                Fe.setMarca(JOptionPane.showInputDialog("Insira a marca do Produto:\nMarcas no banco de dados:\nArno\nPhilips\nElectrolux\nCadence"));
                                 do{
                                     Fe.setPreço(Double.parseDouble(JOptionPane.showInputDialog("Insira o preço do Produto:")));
                                     if(Fe.getPreço()<=0){
@@ -80,7 +92,7 @@ public class RicardoEletro {
 
                             if(choiceADD==2){
                                 Batedeira Bat= new Batedeira();
-                                Bat.setMarca(JOptionPane.showInputDialog("Insira a marca do Produto:"));
+                                Bat.setMarca(JOptionPane.showInputDialog("Insira a marca do Produto:\nMarcas no banco de dados:\nArno\nPhilips\nElectrolux\nCadence"));
                                 Bat.setQthelices(Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de hélices:")));
                                 do{
                                     Bat.setPreço(Double.parseDouble(JOptionPane.showInputDialog("Insira o preço do Produto:")));
@@ -121,8 +133,30 @@ public class RicardoEletro {
                                         JOptionPane.showMessageDialog(null,"Não foi encontrado nenhum ítem com essa numeração");
                                         continue;
                                     }
-                                    JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"");                                                            
+                                    switch (ArrLiq.get(vG-1).getMarca()){
+                                        case "Philips":
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqPh);
+                                            break;
+                                            
+                                        case "Cadence":
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqCa);
+                                            break;
+                                            
+                                        case "Arno":
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqAr);
+                                            break;
+                                            
+                                        case "Electrolux":
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqEl);
+                                            break;
+                                            
+                                        default:
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).Fliq);                                                            
+                                            break;
+                                    }
                                     break;
+                                    
+                                    
                                 case 1:
                                     if(ArrFe.isEmpty()){
                                         JOptionPane.showMessageDialog(null,"Não há nenhum item para ser gerenciado, por favor adicione um para prosseguir");
@@ -134,8 +168,31 @@ public class RicardoEletro {
                                         JOptionPane.showMessageDialog(null,"Não foi encontrado nenhum ítem com essa numeração");
                                         continue;
                                     }
-                                    JOptionPane.showMessageDialog(null,"Ferro de Passar "+vF+":\nMarca: "+ArrFe.get(vF-1).getMarca()+"\nPreço: "+ArrFe.get(vF-1).getPreço()+"\nVoltagem: "+ArrFe.get(vF-1).getVoltagem()+"v");
+                                    switch(ArrFe.get(vF-1).getMarca()){
+                                        case "Philips":
+                                            JOptionPane.showMessageDialog(null,"Ferro de Passar "+vF+":\nMarca: "+ArrFe.get(vF-1).getMarca()+"\nPreço: "+ArrFe.get(vF-1).getPreço()+"\nVoltagem: "+ArrFe.get(vF-1).getVoltagem()+"v",null,JOptionPane.INFORMATION_MESSAGE,ArrFe.get(vF-1).ImFePh);
+                                            break;
+                                            
+                                        case "Cadence":
+                                            JOptionPane.showMessageDialog(null,"Ferro de Passar "+vF+":\nMarca: "+ArrFe.get(vF-1).getMarca()+"\nPreço: "+ArrFe.get(vF-1).getPreço()+"\nVoltagem: "+ArrFe.get(vF-1).getVoltagem()+"v",null,JOptionPane.INFORMATION_MESSAGE,ArrFe.get(vF-1).ImFeCa);
+                                            break;
+                                            
+                                        case "Arno":
+                                            JOptionPane.showMessageDialog(null,"Ferro de Passar "+vF+":\nMarca: "+ArrFe.get(vF-1).getMarca()+"\nPreço: "+ArrFe.get(vF-1).getPreço()+"\nVoltagem: "+ArrFe.get(vF-1).getVoltagem()+"v",null,JOptionPane.INFORMATION_MESSAGE,ArrFe.get(vF-1).ImFeAr);
+                                            break;
+                                            
+                                        case "Electrolux":
+                                            JOptionPane.showMessageDialog(null,"Ferro de Passar "+vF+":\nMarca: "+ArrFe.get(vF-1).getMarca()+"\nPreço: "+ArrFe.get(vF-1).getPreço()+"\nVoltagem: "+ArrFe.get(vF-1).getVoltagem()+"v",null,JOptionPane.INFORMATION_MESSAGE,ArrFe.get(vF-1).ImFeEl);
+                                            break;
+                                            
+                                        default:
+                                            JOptionPane.showMessageDialog(null,"Ferro de Passar "+vF+":\nMarca: "+ArrFe.get(vF-1).getMarca()+"\nPreço: "+ArrFe.get(vF-1).getPreço()+"\nVoltagem: "+ArrFe.get(vF-1).getVoltagem()+"v",null,JOptionPane.INFORMATION_MESSAGE,ArrFe.get(vF-1).ImFe);
+                                            break;
+                                    }
                                     break;
+                                    
+                                    
+                                    
                                 case 2:
                                     if(ArrBat.isEmpty()){
                                         JOptionPane.showMessageDialog(null,"Não há nenhum item para ser gerenciado, por favor adicione um para prosseguir");
@@ -147,7 +204,28 @@ public class RicardoEletro {
                                         JOptionPane.showMessageDialog(null,"Não foi encontrado nenhum ítem com essa numeração");
                                         continue;
                                     }
-                                    JOptionPane.showMessageDialog(null,"Ferro de Passar "+vB+":\nMarca: "+ArrBat.get(vB-1).getMarca()+"\nPreço: "+ArrBat.get(vB-1).getPreço()+"\nVoltagem: "+ArrBat.get(vB-1).getVoltagem()+"v\nQuantidade Média: "+ArrBat.get(vB-1).getQuantidadeM()+"\nQuantidade de Hélices: "+ArrBat.get(vB).getQthelices()+"");
+                                    switch(ArrBat.get(vB-1).getMarca()){
+                                        case "Philips":
+                                            JOptionPane.showMessageDialog(null,"Batedeira "+vB+":\nMarca: "+ArrBat.get(vB-1).getMarca()+"\nPreço: "+ArrBat.get(vB-1).getPreço()+"\nVoltagem: "+ArrBat.get(vB-1).getVoltagem()+"v\nQuantidade Média: "+ArrBat.get(vB-1).getQuantidadeM()+"\nQuantidade de Hélices: "+ArrBat.get(vB-1).getQthelices()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrBat.get(vB-1).ImBatPh);
+                                            break;
+                                        
+                                        case "Arno":
+                                            JOptionPane.showMessageDialog(null,"Batedeira "+vB+":\nMarca: "+ArrBat.get(vB-1).getMarca()+"\nPreço: "+ArrBat.get(vB-1).getPreço()+"\nVoltagem: "+ArrBat.get(vB-1).getVoltagem()+"v\nQuantidade Média: "+ArrBat.get(vB-1).getQuantidadeM()+"\nQuantidade de Hélices: "+ArrBat.get(vB-1).getQthelices()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrBat.get(vB-1).ImBatAr);
+                                            break;
+                                            
+                                        case "Electrolux":
+                                            JOptionPane.showMessageDialog(null,"Batedeira "+vB+":\nMarca: "+ArrBat.get(vB-1).getMarca()+"\nPreço: "+ArrBat.get(vB-1).getPreço()+"\nVoltagem: "+ArrBat.get(vB-1).getVoltagem()+"v\nQuantidade Média: "+ArrBat.get(vB-1).getQuantidadeM()+"\nQuantidade de Hélices: "+ArrBat.get(vB-1).getQthelices()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrBat.get(vB-1).ImBatEl);
+                                            break;
+                                            
+                                        case "Cadence":
+                                            JOptionPane.showMessageDialog(null,"Batedeira "+vB+":\nMarca: "+ArrBat.get(vB-1).getMarca()+"\nPreço: "+ArrBat.get(vB-1).getPreço()+"\nVoltagem: "+ArrBat.get(vB-1).getVoltagem()+"v\nQuantidade Média: "+ArrBat.get(vB-1).getQuantidadeM()+"\nQuantidade de Hélices: "+ArrBat.get(vB-1).getQthelices()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrBat.get(vB-1).ImBatCa);
+                                            break;
+                                        
+                                        default:
+                                            JOptionPane.showMessageDialog(null,"Batedeira "+vB+":\nMarca: "+ArrBat.get(vB-1).getMarca()+"\nPreço: "+ArrBat.get(vB-1).getPreço()+"\nVoltagem: "+ArrBat.get(vB-1).getVoltagem()+"v\nQuantidade Média: "+ArrBat.get(vB-1).getQuantidadeM()+"\nQuantidade de Hélices: "+ArrBat.get(vB-1).getQthelices()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrBat.get(vB-1).ImBat);
+                                            break;
+                                    }
+                                    JOptionPane.showMessageDialog(null,"Batedeira "+vB+":\nMarca: "+ArrBat.get(vB-1).getMarca()+"\nPreço: "+ArrBat.get(vB-1).getPreço()+"\nVoltagem: "+ArrBat.get(vB-1).getVoltagem()+"v\nQuantidade Média: "+ArrBat.get(vB-1).getQuantidadeM()+"\nQuantidade de Hélices: "+ArrBat.get(vB-1).getQthelices()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrBat.get(vB-1).ImBat);
                                     break;
                             }
                         }while(choiceGE!=3);

@@ -5,6 +5,8 @@
  */
 package ricardoeletro;
 
+import javax.swing.ImageIcon;
+
 
 
 /**
@@ -12,6 +14,11 @@ package ricardoeletro;
  * @author danpg
  */
 class Liquidificador extends Eletros{
+        ImageIcon Fliq = new ImageIcon(getClass().getResource("Liquidificador.png"));
+        ImageIcon FliqPh = new ImageIcon(getClass().getResource("Liquidificador Philips.png"));
+        ImageIcon FliqEl = new ImageIcon(getClass().getResource("Liquidificador Electrolux.png"));
+        ImageIcon FliqAr = new ImageIcon(getClass().getResource("Liquidificador Arno.png"));
+        ImageIcon FliqCa = new ImageIcon(getClass().getResource("Liquidificador Cadence.png"));
         private String tampa;
         private String cor;
         private String descrição;

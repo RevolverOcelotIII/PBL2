@@ -4,11 +4,12 @@ package ricardoeletro;
  *
  * @author danpg
  */
-public class Eletros {
+public abstract class Eletros {
     protected String marca;
     protected double preço;
     protected int voltagem;
     
+    public abstract void Desconto(int mes);
 
     public String getMarca() {
         return marca;

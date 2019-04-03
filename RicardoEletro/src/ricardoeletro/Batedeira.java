@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
  *
  * @author danpg
  */
-class Batedeira extends Eletros{
+class Batedeira extends Eletros implements Helicoidal{
     ImageIcon ImBat = new ImageIcon(getClass().getResource("Batedeira.png"));
     ImageIcon ImBatPh = new ImageIcon(getClass().getResource("Batedeira Philips.png"));
     ImageIcon ImBatAr = new ImageIcon(getClass().getResource("Batedeira Arno.png"));
@@ -36,12 +36,14 @@ class Batedeira extends Eletros{
     public void setQuantidadeM(double quantidadeM) {
         this.quantidadeM = quantidadeM;
     }
+    @Override
     public void Desconto(int mes){
         if(mes==12){
             this.preço*=0.8;
         }
     }
-    public void cQuantidadeM(int capacidade,int quantidade){
+    @Override
+    public void cQuantidadeM(double capacidade,double quantidade){
         this.quantidadeM=(quantidade/capacidade)*this.qthelices;
     }
 }

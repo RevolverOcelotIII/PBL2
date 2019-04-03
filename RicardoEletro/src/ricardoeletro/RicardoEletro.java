@@ -45,7 +45,8 @@ public class RicardoEletro {
                             if(choiceADD==0){
                                 Liquidificador liq=new Liquidificador();
                                 liq.setMarca(JOptionPane.showInputDialog("Insira a marca do Produto:\nMarcas no banco de dados:\nArno\nPhilips\nElectrolux\nCadence"));
-                                liq.setCor(JOptionPane.showInputDialog("Insira a cor do Produto:"));
+                                liq.setCor(JOptionPane.showInputDialog("Insira a cor da tampa:"));
+                                liq.setDescrição(JOptionPane.showInputDialog("Insira a descrição da tampa:"));
                                 do{
                                    int volts=Integer.parseInt(JOptionPane.showInputDialog("Insira a Voltagem do Produto:"));
                                    ops=liq.defVoltagem(volts);
@@ -60,10 +61,8 @@ public class RicardoEletro {
                                     }
                                 }while(liq.getPreço()<=0);
                                 liq.Desconto(mes);
-                                liq.setDescrição(JOptionPane.showInputDialog("Insira a descrição do Liquidificador:"));
-                                liq.setTampa(JOptionPane.showInputDialog("Insira o tipo da tampa:"));
-                                int quantidade=Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade do produto"));
-                                int capacidade=Integer.parseInt(JOptionPane.showInputDialog("Insira a capacidade do produto"));
+                                double quantidade=Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade do produto"));
+                                double capacidade=Integer.parseInt(JOptionPane.showInputDialog("Insira a capacidade do produto"));
                                 liq.cQuantidadeM(capacidade, quantidade);
                                 ArrLiq.add(liq);
                                 JOptionPane.showMessageDialog(null, "Cabo");
@@ -108,8 +107,8 @@ public class RicardoEletro {
                                        JOptionPane.showMessageDialog(null, "Esta Voltagem é inválida, por favor insira outra");
                                    }
                                 }while(ops==true);
-                                int quantidade=Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade do produto"));
-                                int capacidade=Integer.parseInt(JOptionPane.showInputDialog("Insira a capacidade do produto"));
+                                double quantidade=Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade do produto"));
+                                double capacidade=Integer.parseInt(JOptionPane.showInputDialog("Insira a capacidade do produto"));
                                 Bat.cQuantidadeM(capacidade, quantidade);
                                 ArrBat.add(Bat);
                                 JOptionPane.showMessageDialog(null, "Cabo");
@@ -135,23 +134,23 @@ public class RicardoEletro {
                                     }
                                     switch (ArrLiq.get(vG-1).getMarca()){
                                         case "Philips":
-                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqPh);
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqPh);
                                             break;
                                             
                                         case "Cadence":
-                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqCa);
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqCa);
                                             break;
                                             
                                         case "Arno":
-                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqAr);
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqAr);
                                             break;
                                             
                                         case "Electrolux":
-                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqEl);
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).FliqEl);
                                             break;
                                             
                                         default:
-                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nTampa: "+ArrLiq.get(vG-1).getTampa()+"\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).Fliq);                                                            
+                                            JOptionPane.showMessageDialog(null,"Liquidificador "+vG+":\nMarca: "+ArrLiq.get(vG-1).getMarca()+"\nPreço: "+ArrLiq.get(vG-1).getPreço()+"\nVoltagem: "+ArrLiq.get(vG-1).getVoltagem()+"v\nCor: "+ArrLiq.get(vG-1).getCor()+"\nQuantidade Média: "+ArrLiq.get(vG-1).getQuantidadeM()+"\nDescrição: "+ArrLiq.get(vG-1).getDescrição()+"",null,JOptionPane.INFORMATION_MESSAGE,ArrLiq.get(vG-1).Fliq);                                                            
                                             break;
                                     }
                                     break;

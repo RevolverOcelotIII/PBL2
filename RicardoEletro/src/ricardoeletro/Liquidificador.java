@@ -13,24 +13,15 @@ import javax.swing.ImageIcon;
  *
  * @author danpg
  */
-class Liquidificador extends Eletros{
+class Liquidificador extends Eletros implements Helicoidal{
         ImageIcon Fliq = new ImageIcon(getClass().getResource("Liquidificador.png"));
         ImageIcon FliqPh = new ImageIcon(getClass().getResource("Liquidificador Philips.png"));
         ImageIcon FliqEl = new ImageIcon(getClass().getResource("Liquidificador Electrolux.png"));
         ImageIcon FliqAr = new ImageIcon(getClass().getResource("Liquidificador Arno.png"));
         ImageIcon FliqCa = new ImageIcon(getClass().getResource("Liquidificador Cadence.png"));
-        private String tampa;
         private String cor;
         private String descrição;
         private double quantidadeM;
-
-        public String getTampa() {
-            return tampa;
-        }
-
-        public void setTampa(String tampa) {
-            this.tampa = tampa;
-        }
 
         public String getCor() {
             return cor;
@@ -86,12 +77,14 @@ class Liquidificador extends Eletros{
         public void setVoltagem(int voltagem) {
             this.voltagem = voltagem;
         }
+        @Override
         public void Desconto(int mes){
             if(mes==8){
                 this.preço*=0.9;
             }
         }
-        public void cQuantidadeM(int capacidade,int quantidade){
+        @Override
+        public void cQuantidadeM(double capacidade,double quantidade){
             this.quantidadeM=quantidade/capacidade;
         }
     }

@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
         ImageIcon ImFeCa = new ImageIcon(getClass().getResource("Ferro Cadence.png"));
         ImageIcon ImFeEl = new ImageIcon(getClass().getResource("Ferro Electrolux.png"));
         ImageIcon ImFeAr = new ImageIcon(getClass().getResource("Ferro Arno.png"));
+        @Override
         public void Desconto(int mes){
             this.preço*=0.85;
         }
